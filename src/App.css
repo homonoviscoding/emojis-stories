@@ -1,6 +1,24 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6f1b36;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+body {
+  background-color: #f1d0e5;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 16px;
+  max-width: 400px;
+}
+
+img {
+  width: 32px;
+  height: 32px;
+}
+
+
