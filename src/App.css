@@ -21,4 +21,19 @@ img {
   height: 32px;
 }
 
+button {
+	width: 100%;
+	font-size: 32px;
+	font-weight: 500;
+	padding: 8px 16px;
+	background-color: #f87cd1;
+	border: 2px solid #f87cd1;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.secondary-button {
+	width: auto;
+	background-color: transparent;
+}
 

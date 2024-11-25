@@ -1,0 +1,50 @@
+.field {
+	margin-bottom: 32px;
+}
+
+label {
+	display: block;
+	font-size: 32px;
+	font-weight: 500;
+	margin-bottom: 16px;
+}
+
+input {
+	border: none;
+	border-bottom: 2px solid #6f1b36;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 500;
+	color: #f87cd1;
+	padding-bottom: 10px;
+	background-color: transparent;
+}
+
+input:focus {
+	outline: none;
+	color: #6f1b36;
+}
+
+.emoji-list {
+	list-style-type: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+}
+
+.emoji {
+	font-size: 40px;
+	height: 84px;
+	width: 84px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.selected,
+.emoji:hover {
+	background-color: #fbabdf;
+}
