@@ -1,14 +1,54 @@
+import { useState } from 'react'
 import homeIcon from '../../assets/home.png'
+import { apiKey } from '../config'
 
 // eslint-disable-next-line react/prop-types
-const ResultScreen = ({ story, setStage }) => {
-  const handleContinue = () => {
+const ResultScreen = ({ story, setStory, setStage }) => {
+  const [chatMesaages, setChatMessages] = useState([
+    {
+      role: 'assistant',
+      content: JSON.stringify(story),
+    },
+  ])
+  const handleContinue = async () => {
+
+    setStage('loading')
+
+    const openApiKey = apiKey
+    
     const prompt = {
       role: 'user',
-      content: 'Continua la storia da qui. Scrivi un breve paragrafo che prosegua la storia precedente. Le tue risposte sono solo in formato JSON con lo stesso formato delle tue risposte precedenti. Mantieni lo stesso valore per "title". Cambia solo il valore di "text"'
+      content: 'Continue the story from here. Write a short paragraph that continues the previous story. Your responses should only be in JSON format with the same structure as your previous responses. Keep the same value for "title". Change only the value of "text"'
     }
 
-    // Your continue story logic here...
+    setChatMessages([ ...chatMesaages, prompt ])
+
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${openApiKey}`
+          },
+          body: JSON.stringify({
+          model: 'gpt-3.5-turbo',
+          temperature: 0.7,
+          messages: [ ...chatMesaages, prompt ]
+          })
+      })
+
+      const data = await response.json()
+      console.log(data)
+      const newStory = JSON.parse(data.choices[0].message.content)
+      setStory(newStory)
+      setChatMessages([...chatMesaages, prompt, { role: 'assistant', content: JSON.stringify(newStory) }])
+      setStage('result')
+      } catch (error) {
+      console.error('Error continuing story:', error)
+      // setStage('building')
+      }
+    
+
   }
 
   const handleHome = () => {
@@ -25,7 +65,7 @@ const ResultScreen = ({ story, setStage }) => {
         <button id="home" className="secondary-button" onClick={handleHome}>
           <img src={homeIcon} alt="home" />
         </button>
-        <button id="continue" onClick={handleContinue}>AVANTI</button>
+        <button id="continue" onClick={handleContinue}>CONTINUE</button>
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import BuildingScreen from '../buildingScreen/BuildingScreen'
 import LoadingScreen from '../LoadingScreen/LoadingScreen'
-import ResultScreen from '../ResultScreen/ResultScreen'
+import ResultScreen from '../resultScreen/ResultScreen'
 import { apiKey } from '../config'
 
 
@@ -56,7 +56,7 @@ export default function Main () {
         console.error('Error creating story:', error)
         setStage('building')
         }
-    }
+  }
 
   return (
     <main className={stage}>
@@ -70,7 +70,7 @@ export default function Main () {
         />
       )}
       {stage === 'loading' && <LoadingScreen />}
-      {stage === 'result' && <ResultScreen story={story} setStage={setStage} />}
+      {stage === 'result' && <ResultScreen story={story} setStory={setStory} setStage={setStage} />}
     </main>
   )
 }

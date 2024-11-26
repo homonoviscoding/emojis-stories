@@ -3,7 +3,10 @@ import './BuildingScreen.css'
 
 // eslint-disable-next-line react/prop-types
 const BuildingScreen = ({ name, setName, selectedEmojis, setSelectedEmojis, onGenerate }) => {
-  const emojis = ['👹', '👽', '🧚', '🧟', '🌴', '🌍', '🐥', '🧢']
+  const emojis = [
+    '👹', '👽', '🧚', '🧟', '🌴', '🌍', '🐥', '🧢',
+    '🍿', '🐂', '💣', '🔥', '🤖', '🚀', '🥩', '🔫', '🐕', '🥷'
+  ]
 
   const handleEmojiClick = (emoji) => {
     // eslint-disable-next-line react/prop-types
@@ -21,7 +24,7 @@ const BuildingScreen = ({ name, setName, selectedEmojis, setSelectedEmojis, onGe
   return (
     <div className="building-screen">
       <div className="field">
-        <label>Protagonist&apos<span>s</span> name</label>
+        <label>Protagonist</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </div>
       <div className="field">

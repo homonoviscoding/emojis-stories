@@ -35,8 +35,8 @@ input:focus {
 
 .emoji {
 	font-size: 40px;
-	height: 84px;
-	width: 84px;
+	height: 54px;
+	width: 54px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
