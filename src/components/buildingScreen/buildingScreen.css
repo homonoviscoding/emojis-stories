@@ -40,11 +40,21 @@ input:focus {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 8px;
+	border-radius: 50%;
 	cursor: pointer;
 }
 
 .selected,
 .emoji:hover {
 	background-color: #fbabdf;
+	animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
 }
