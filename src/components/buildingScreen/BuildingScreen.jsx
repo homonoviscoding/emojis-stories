@@ -11,7 +11,7 @@ const BuildingScreen = ({ name, setName, selectedEmojis, setSelectedEmojis, onGe
   const handleEmojiClick = (emoji) => {
     // eslint-disable-next-line react/prop-types
     if (selectedEmojis.includes(emoji)) {
-      console.warn(`Emoji ${emoji} già presente`)
+      console.warn(`Emoji ${emoji} already picked`)
       return
     }
     const newEmojis = [...selectedEmojis, emoji]
@@ -28,7 +28,7 @@ const BuildingScreen = ({ name, setName, selectedEmojis, setSelectedEmojis, onGe
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </div>
       <div className="field">
-        <label>Scegli 3 emoji</label>
+        <label>Choose 3 emoji</label>
         <ul className="emoji-list">
           {emojis.map((emoji) => (
             // eslint-disable-next-line react/prop-types
