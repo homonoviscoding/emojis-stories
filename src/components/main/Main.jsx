@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import BuildingScreen from '../buildingScreen/BuildingScreen'
-import LoadingScreen from '../LoadingScreen/LoadingScreen'
-import ResultScreen from '../resultScreen/ResultScreen'
+import BuildingScreen from '../buildingScreen/BuildingScreen.jsx'
+import LoadingScreen from '../LoadingScreen/LoadingScreen.jsx'
+import ResultScreen from '../resultScreen/ResultScreen.jsx'
 import { apiKey } from '../config'
 
 
